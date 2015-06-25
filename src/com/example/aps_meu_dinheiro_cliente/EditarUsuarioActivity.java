@@ -66,9 +66,19 @@ public class EditarUsuarioActivity extends Activity {
 						Toast.makeText(EditarUsuarioActivity.this, "Usuario Invalido!", Toast.LENGTH_SHORT).show();						
 					} else {	
 						String tLogin = ed1.getText().toString();
-						String tSenha = ed2.getText().toString();			
+						String tSenha = ed2.getText().toString();
 						
-						String resourceURL = "http://10.0.2.2:2000/usuario/" + idusuario + "/" + tLogin + "/" + tSenha;
+						String log = "";
+						for(int i = 0; i < tLogin.length(); i++){
+							if (!String.valueOf(tLogin.charAt(i)).equals(" ")){
+								log += String.valueOf(tLogin.charAt(i));
+							}
+							if (String.valueOf(tLogin.charAt(i)).equals(" ")){
+								log += String.valueOf("_");
+							}
+						}
+						
+						String resourceURL = "http://10.0.2.2:2000/usuario/" + idusuario + "/" + log + "/" + tSenha;
 						
 						AsyncHttpClient httpClient = new AsyncHttpClient();
 						httpClient.put(resourceURL, new TextHttpResponseHandler() {

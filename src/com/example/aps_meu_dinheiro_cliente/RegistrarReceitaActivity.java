@@ -1,22 +1,20 @@
 package com.example.aps_meu_dinheiro_cliente;
 
 import java.io.UnsupportedEncodingException;
-
 import org.apache.http.Header;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import com.example.aps_meu_dinheiro_cliente.R;
 import com.example.aps_meu_dinheiro_cliente.R.id;
 import com.example.aps_meu_dinheiro_cliente.R.layout;
 import com.example.aps_meu_dinheiro_cliente.R.menu;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
-
 import android.support.v7.app.ActionBarActivity;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -26,6 +24,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class RegistrarReceitaActivity extends ActionBarActivity {
 
@@ -58,6 +57,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 		
 	}
 	
+	@SuppressLint("ShowToast")
 	OnClickListener b1ClickListener = new OnClickListener() {
 
 		@Override
@@ -96,20 +96,26 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 					"application/json", new JsonHttpResponseHandler() {
 						public void onSuccess(int statusCode, Header[] headers,
 								JSONObject response) {
-							showSuccess(response);
+							ed1.setText("");
+							ed2.setText("");
+							ed3.setText("");
+							try {
+								Toast.makeText(RegistrarReceitaActivity.this, "Receita recebida com sucesso!", Toast.LENGTH_LONG);	
+							} catch (Exception e) {
+								// TODO: handle exception
+							}
+							//showSuccess(response);
 						};
 					});
 		}
 	};
 
-	public void showSuccess(JSONObject response) {
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(
-				RegistrarReceitaActivity.this);
-		
+	public void showSuccess(JSONObject response) {	
 		ed1.setText("");
 		ed2.setText("");
 		ed3.setText("");
-
+		
+		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarReceitaActivity.this);
 		dialogBuilder.setMessage("Receita Registrada com Sucesso!");
 		dialogBuilder.setPositiveButton("OK",
 				new DialogInterface.OnClickListener() {
@@ -121,6 +127,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 		dialogBuilder.show();
 	}
 	
+	@SuppressLint("ShowToast")
 	OnClickListener b2ClickListener = new OnClickListener() {
 
 		@Override
@@ -159,20 +166,26 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 					"application/json", new JsonHttpResponseHandler() {
 						public void onSuccess(int statusCode, Header[] headers,
 								JSONObject response) {
-							showSuccess2(response);
+							ed1.setText("");
+							ed2.setText("");
+							ed3.setText("");
+							try {
+								Toast.makeText(RegistrarReceitaActivity.this, "Receita recebida com sucesso!", Toast.LENGTH_LONG);
+							} catch (Exception e) {
+								// TODO: handle exception
+							}
+							//showSuccess2(response);
 						};
 					});
 		}
 	};
 
-	public void showSuccess2(JSONObject response) {
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(
-				RegistrarReceitaActivity.this);
-		
+	public void showSuccess2(JSONObject response) {		
 		ed1.setText("");
 		ed2.setText("");
 		ed3.setText("");
-
+		
+		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarReceitaActivity.this);
 		dialogBuilder.setMessage("Receita Recebida com Sucesso!");
 		dialogBuilder.setPositiveButton("OK",
 				new DialogInterface.OnClickListener() {
