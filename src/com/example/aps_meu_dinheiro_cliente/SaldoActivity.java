@@ -2,6 +2,8 @@ package com.example.aps_meu_dinheiro_cliente;
 
 
 
+import java.text.DecimalFormat;
+
 import org.apache.http.Header;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,14 +90,17 @@ public class SaldoActivity extends ActionBarActivity {
 						e.printStackTrace();
 					}
 				}
+				DecimalFormat df = new DecimalFormat();  
+		        df.applyPattern("R$ #,##0.00"); 
+		        
 				saldoAtual = receitaRecebida - despesaPaga;
 				saldoTotal = saldoAtual + receitaFutura - despesaFutura;
-				tv1.setText(String.valueOf(receitaFutura));
-				tv2.setText(String.valueOf(receitaRecebida));
-				tv3.setText(String.valueOf(despesaFutura));
-				tv4.setText(String.valueOf(despesaPaga));
-				tv5.setText(String.valueOf(saldoAtual));
-				tv6.setText(String.valueOf(saldoTotal));
+				tv1.setText(String.valueOf(df.format(receitaFutura)));
+				tv2.setText(String.valueOf(df.format(receitaRecebida)));
+				tv3.setText(String.valueOf(df.format(despesaFutura)));
+				tv4.setText(String.valueOf(df.format(despesaPaga)));
+				tv5.setText(String.valueOf(df.format(saldoAtual)));
+				tv6.setText(String.valueOf(df.format(saldoTotal)));
 			}
 		});
 	}
