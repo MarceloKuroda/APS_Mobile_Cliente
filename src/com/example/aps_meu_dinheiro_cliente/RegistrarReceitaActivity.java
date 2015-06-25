@@ -96,15 +96,8 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 					"application/json", new JsonHttpResponseHandler() {
 						public void onSuccess(int statusCode, Header[] headers,
 								JSONObject response) {
-							ed1.setText("");
-							ed2.setText("");
-							ed3.setText("");
-							try {
-								Toast.makeText(RegistrarReceitaActivity.this, "Receita recebida com sucesso!", Toast.LENGTH_LONG);	
-							} catch (Exception e) {
-								// TODO: handle exception
-							}
-							//showSuccess(response);
+							
+							showSuccess(response);
 						};
 					});
 		}
@@ -115,7 +108,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 		ed2.setText("");
 		ed3.setText("");
 		
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarReceitaActivity.this);
+		/*AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarReceitaActivity.this);
 		dialogBuilder.setMessage("Receita Registrada com Sucesso!");
 		dialogBuilder.setPositiveButton("OK",
 				new DialogInterface.OnClickListener() {
@@ -124,7 +117,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 						//RegistrarReceitaActivity.this.finish();
 					}
 				});
-		dialogBuilder.show();
+		dialogBuilder.show();*/
 	}
 	
 	@SuppressLint("ShowToast")
@@ -166,15 +159,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 					"application/json", new JsonHttpResponseHandler() {
 						public void onSuccess(int statusCode, Header[] headers,
 								JSONObject response) {
-							ed1.setText("");
-							ed2.setText("");
-							ed3.setText("");
-							try {
-								Toast.makeText(RegistrarReceitaActivity.this, "Receita recebida com sucesso!", Toast.LENGTH_LONG);
-							} catch (Exception e) {
-								// TODO: handle exception
-							}
-							//showSuccess2(response);
+							showSuccess2(response);
 						};
 					});
 		}
@@ -185,7 +170,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 		ed2.setText("");
 		ed3.setText("");
 		
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarReceitaActivity.this);
+		/*AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarReceitaActivity.this);
 		dialogBuilder.setMessage("Receita Recebida com Sucesso!");
 		dialogBuilder.setPositiveButton("OK",
 				new DialogInterface.OnClickListener() {
@@ -194,7 +179,7 @@ public class RegistrarReceitaActivity extends ActionBarActivity {
 						//RegistrarReceitaActivity.this.finish();
 					}
 				});
-		dialogBuilder.show();
+		dialogBuilder.show();*/
 	}
 
 	@Override

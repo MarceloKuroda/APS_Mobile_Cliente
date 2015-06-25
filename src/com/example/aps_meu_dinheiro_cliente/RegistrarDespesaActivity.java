@@ -93,11 +93,8 @@ public class RegistrarDespesaActivity extends ActionBarActivity {
 					"application/json", new JsonHttpResponseHandler() {
 						public void onSuccess(int statusCode, Header[] headers,
 								JSONObject response) {
-							ed1.setText("");
-							ed2.setText("");
-							ed3.setText("");
-							Toast.makeText(RegistrarDespesaActivity.this, "Despesa registrada com sucesso!", Toast.LENGTH_LONG);
-							//showSuccess(response);
+							
+							showSuccess(response);
 						};
 					});
 		}
@@ -108,7 +105,7 @@ public class RegistrarDespesaActivity extends ActionBarActivity {
 		ed2.setText("");
 		ed3.setText("");
 
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarDespesaActivity.this);
+		/*AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarDespesaActivity.this);
 		dialogBuilder.setMessage("Despesa Registrada com Sucesso!");
 		dialogBuilder.setPositiveButton("OK",
 				new DialogInterface.OnClickListener() {
@@ -117,10 +114,9 @@ public class RegistrarDespesaActivity extends ActionBarActivity {
 						//RegistrarDespesaActivity.this.finish();
 					}
 				});
-		dialogBuilder.show();
+		dialogBuilder.show();*/
 	}
 	
-	@SuppressLint("ShowToast")
 	OnClickListener b2ClickListener = new OnClickListener() {
 
 		@Override
@@ -159,11 +155,8 @@ public class RegistrarDespesaActivity extends ActionBarActivity {
 					"application/json", new JsonHttpResponseHandler() {
 						public void onSuccess(int statusCode, Header[] headers,
 								JSONObject response) {
-							ed1.setText("");
-							ed2.setText("");
-							ed3.setText("");
-							Toast.makeText(RegistrarDespesaActivity.this, "Despesa paga com sucesso!", Toast.LENGTH_LONG);
-							//showSuccess2(response);
+							
+							showSuccess2(response);
 						};
 					});
 			
@@ -175,7 +168,7 @@ public class RegistrarDespesaActivity extends ActionBarActivity {
 		ed2.setText("");
 		ed3.setText("");
 
-		AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarDespesaActivity.this);
+		/*AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(RegistrarDespesaActivity.this);
 		dialogBuilder.setMessage("Despesa Paga com Sucesso!");
 		dialogBuilder.setPositiveButton("OK",
 				new DialogInterface.OnClickListener() {
@@ -184,7 +177,7 @@ public class RegistrarDespesaActivity extends ActionBarActivity {
 						//RegistrarDespesaActivity.this.finish();
 					}
 				});
-		dialogBuilder.show();
+		dialogBuilder.show();*/
 	}
 
 	@Override
